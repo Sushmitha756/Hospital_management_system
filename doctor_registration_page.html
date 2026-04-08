@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor registration page</title>
+    <link rel="stylesheet" href="doctor_registration_page.css">
+</head>
+<body>
+   <div class="container">
+    <h2> Doctor Registration page</h2>
+    <form onsubmit="return validateForm()" action="Loginpage.html">
+    Full name *: <input type="text" placeholder="Enter your full name" required id="name"><br><br>
+    Email *: <input type="email" placeholder="Abc@23" required id="email" ><br><br>
+    Phone number *: <input type="number" id="phone" required><br><br>
+    Specialization *:
+    <select id="Specialization" required>
+        <option >Cardiology</option>
+        <option >Neurology</option>
+        <option >Gynocology</option>
+        <option >Peditrision</option>
+        <option >dermatology</option>
+    </select> <br> <br>
+    Qualification *:
+    <input type="text" id="qualification" required><br><br>
+    Experience *:
+    <input type="text" id="experience" required><br><br>
+    Consultation fee *:
+    <input type="number" id="fee" required><br><br>
+Available Days *:
+<div class="days">
+<label><input type="checkbox" name="days" value="Mon"> Mon</label>
+<label><input type="checkbox" name="days" value="Tue"> Tue</label>
+<label><input type="checkbox" name="days" value="Wed"> Wed</label>
+<label><input type="checkbox" name="days" value="Thu"> Thu</label>
+<label><input type="checkbox" name="days" value="Fri"> Fri</label>
+</div><br>
+    Available timings *:
+    <input type="time" id="startTime" required>to <input type="time" id="endTime" required><br><br>
+    <button type="submit">Register</button>  
+    </form>
+    </div>
+</body>
+<script>
+function validateForm() {
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let phone = document.getElementById("phone").value;
+    let spec = document.getElementById("specialization").value;
+    let qualification = document.getElementById("qualification").value;
+    let experience = document.getElementById("experience").value;
+    let fee = document.getElementById("fee").value;
+    let start = document.getElementById("startTime").value;
+    let end = document.getElementById("endTime").value;
+
+    let days = document.getElementsByName("days");
+    let daySelected = false;
+
+    for (let i = 0; i < days.length; i++) {
+        if (days[i].checked) {
+            daySelected = true;
+            break;
+        }
+    }
+
+    if (name === "" || email === "" || phone === "" || spec === "" ||
+        qualification === "" || experience === "" || fee === "" ||
+        start === "" || end === "") {
+        alert("Please fill all fields");
+        return false;
+    }
+
+    if (!daySelected) {
+        alert("Please select at least one available day");
+        return false;
+    }
+
+    alert("Registration Successful!");
+    return true;
+}
+</script>
+</html>

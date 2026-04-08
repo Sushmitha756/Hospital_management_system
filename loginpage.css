@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    background:linear-gradient(to right,#4facfe,#00f2fe);
+    margin: 0;
+}
+
+.container {
+    width: 360px;
+    margin: 80px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+h2, h3 {
+    text-align: center;
+    color:#333;
+}
+label{
+    font-weight:500;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 6px;
+    margin-bottom: 12px;
+    border:1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition:0.3s;
+}
+input:focus, select:focus{
+    border-color: #4facfe;
+    box-shadow: 0 0 5px #4facfe;
+
+}
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: blue;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+button:hover {
+   
+    background-color: green;
+}
+
+a {
+    text-decoration: none;
+    color: #007BFF;
+    text-align: left;
+    display: block;
+    margin-top: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.checkbox input {
+    width: auto;
+}
+
+.forgot {
+    display: block;
+    text-align: left;
+    margin: 10px 0 15px;
+    color: #007bff;
+    font-size: 14px;
+}
+
+.forgot:hover {
+    text-decoration: underline;
+}
+
+.register-section {
+    margin-top: 20px;
+}

@@ -1,0 +1,53 @@
+body {
+    font-family: Arial;
+    background: linear-gradient(to right, #efe9e6, #5effff);
+}
+
+.container {
+    width: 420px;
+    margin: 50px auto;
+    background: white;
+    padding: 100px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+h2 {
+    text-align: center;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #ff5e62;
+    box-shadow: 0 0 5px #ff5e62;
+}
+
+.gender {
+    display: flex;
+    gap: 15px;
+}
+
+.gender input {
+    width: auto;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background:blue;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: green;
+}

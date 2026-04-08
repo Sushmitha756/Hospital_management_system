@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient registration page</title>
+   <link rel="stylesheet" href="patient_details_page.css">
+</head>
+<body>
+    <div class="container">
+    <h2>Patient Registration page</h2>
+    <form action="Loginpage.html">
+        Name *:<input type="text" id="name" placeholder="enter your fullname" required><br><br>
+        Age *:<input type="number" id="age" placeholder="age" required><br><br>
+        
+        Gender *: <br> 
+        <div class="gender"><input type="radio" name="gender" value="female">
+        <label for="female">female</label>
+        <input type="radio" name="gender" value="male" required>
+        <label for="male">male</label> 
+        </div><br>
+        blood group *: <br><br>
+        <select  id="blood group" required>
+            <option >select</option>
+            <option >A+</option>
+            <option >B+</option>
+            <option >A-</option>
+            <option >B-</option>
+            <option >AB+</option>
+            <option >AB-</option>
+            <option >O+</option>
+            <option >O-</option>
+        </select> <br><br>
+        Phone number *:
+        <input type="number" id="phone" placeholder="enter your  phone number" required> <br><br>
+        Address: <textarea placeholder="Address" id="address">enter your address </textarea> <br><br>
+        Emergency number: <input type="number" id="emgnumb" > <br><br>
+        medical history *: <textarea id="medhist" required></textarea> <br><br>
+        upload documents *: <input type="file" required><br><br>
+        <button>Submit</button>
+
+    </form>
+    </div>
+</body>
+
+
+</html>

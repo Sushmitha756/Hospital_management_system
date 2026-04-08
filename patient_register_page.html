@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration page</title>
+    <link rel="stylesheet" href="patient_register_page.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Registration page(patient only)</h2>
+
+    <form action="patient_registration_page.html">
+        <label for="text" >Full name *</label>
+        <input type="text" required><br><br>
+        <label for="email">Email *</label>
+        <input type="email" placeholder="abc@gmail.com" required><br><br>
+        <label for="number">Phone number *</label>
+        <input type="number" required><br><br>
+        <label for="password">Enter your password *</label>
+        <input type="password" placeholder="Q1abc@2004" required><br><br>
+        <label for="password">Confirm password *</label>
+        <input type="password" required><br><br>
+        Enter your gender *:
+      <br>
+      <div class="gender">
+        <input type="radio" name="gender" id="male" value="male" required>
+          <label for="male">Male</label>
+        
+        <input type="radio" name="gender" id="female" value="female" required>
+        <label for="female">Female</label>
+        </div><br>
+        <label for="date">Date of birth *</label>
+        <input type="date" required><br><br>
+        <label for="text">Address *</label>
+        <input type="text" placeholder="Enter your Address" required><br>
+        <br>
+ <button type="submit">Register</button>
+    </form>
+   </div>
+    
+</body>
+</html>

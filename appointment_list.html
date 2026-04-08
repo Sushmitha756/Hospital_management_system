@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment List</title>
+</head>
+<body>
+    <h2>Appointment List</h2>
+    <label for="date">Filter by date:</label>
+    <input type="date" id="filterByDate" onchange="" >
+  <label>Filter by Doctor:</label>
+<select id="doctorFilter" onchange="filterByDoctor()">
+  <option value="">All Doctors</option>
+  <option value="Dr. Sharma">Dr. Sharma</option>
+  <option value="Dr. Rao">Dr. Rao</option>
+  <option value="Dr. Mehta">Dr. Mehta</option>
+</select><br><br>
+
+<table border="1" id="appointmentTable">
+  <tr>
+    <th>Patient Name</th>
+    <th>Doctor</th>
+    <th>Date</th>
+    <th>Time</th>
+  </tr>
+   <button type="button" class="cancel">cancel</button>
+ <button type="button" class="Reschedule">Reschedule</button>
+ 
+ </table> <br><br>
+
+</body>
+</html>
