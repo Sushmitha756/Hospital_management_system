@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patient Profile</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right,#4facfe,#00f2fe);
+    margin:0;
+    padding:0;
+}
+
+.container{
+    width:500px;
+    margin:50px auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 0 10px gray;
+}
+
+h2{
+    text-align:center;
+    color:#333;
+}
+
+.profile-item{
+    margin:15px 0;
+    font-size:18px;
+}
+
+span{
+    font-weight:bold;
+    color:blue;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:blue;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+button:hover{
+    background:green;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Patient Profile</h2>
+
+<div class="profile-item">
+Name: <span id="name">Sushmitha</span>
+</div>
+
+<div class="profile-item">
+Email: <span id="email">patient@gmail.com</span>
+</div>
+
+<div class="profile-item">
+Phone: <span id="phone">9876543210</span>
+</div>
+
+<div class="profile-item">
+Age: <span id="age">22</span>
+</div>
+
+<div class="profile-item">
+Gender: <span id="gender">Female</span>
+</div>
+
+<button onclick="goBack()">Back to Dashboard</button>
+
+</div>
+
+<script>
+
+function goBack(){
+    window.location.href="patient_dashboard.html";
+}
+
+</script>
+
+</body>
+</html>

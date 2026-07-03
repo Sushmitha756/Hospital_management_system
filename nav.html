@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hospital Management System</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(to right,#e3f2fd,#bbdefb);
+}
+
+/* Navbar */
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    background:linear-gradient(to right,#0f2027,#203a43,#2c5364);
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+
+.logo{
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.nav-links{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+.nav-links li a{
+    text-decoration:none;
+    color:white;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.nav-links li a:hover{
+    color:#00e5ff;
+}
+
+/* Search */
+
+.search-box{
+    display:flex;
+    gap:8px;
+}
+
+.search-box input{
+    padding:8px 12px;
+    border:none;
+    border-radius:20px;
+    outline:none;
+}
+
+.search-box button{
+    padding:8px 15px;
+    border:none;
+    border-radius:20px;
+    background:#00c853;
+    color:white;
+    cursor:pointer;
+}
+
+.search-box button:hover{
+    background:#009624;
+}
+
+/* Hero Section */
+
+.hero{
+    height:85vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero-content{
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    width:70%;
+}
+
+.hero-content h1{
+    color:#2c5364;
+    margin-bottom:15px;
+}
+
+.hero-content p{
+    color:#555;
+    margin-bottom:25px;
+}
+
+.hero-content button{
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    background:#007bff;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.hero-content button:hover{
+    background:#0056b3;
+}
+
+/* Features */
+
+.features{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    padding:30px;
+}
+
+.card{
+    background:white;
+    width:250px;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h3{
+    margin-bottom:10px;
+    color:#203a43;
+}
+
+.card p{
+    color:#666;
+}
+
+/* Footer */
+
+.footer{
+    background:#203a43;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        🏥 Hospital Management System
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="nav.html">Home</a></li>
+        <li><a href="loginpage.html">Login</a></li>
+        <li><a href="register.html">Register</a></li>
+        <li><a href="doctor_dashboard.html">Doctor</a></li>
+        <li><a href="patient_dashboard.html">Patient</a></li>
+    </ul>
+
+    <div class="search-box">
+        <input type="text" placeholder="Search">
+        <button>Search</button>
+    </div>
+
+</nav>
+
+<!-- Hero Section -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>Welcome to Hospital Management System</h1>
+
+        <p>
+            Manage Doctors, Patients, Appointments,
+            Prescriptions and Billing Easily.
+        </p>
+
+        <button onclick="window.location.href='loginpage.html'">
+            Get Started
+        </button>
+
+    </div>
+
+</section>
+
+<!-- Features -->
+
+<section class="features">
+
+    <div class="card">
+        <h3>👨‍⚕️ Doctors</h3>
+        <p>Manage doctor profiles and schedules.</p>
+    </div>
+
+    <div class="card">
+        <h3>🧑‍🤝‍🧑 Patients</h3>
+        <p>Store and manage patient records.</p>
+    </div>
+
+    <div class="card">
+        <h3>📅 Appointments</h3>
+        <p>Book and manage appointments online.</p>
+    </div>
+
+    <div class="card">
+        <h3>💊 Prescriptions</h3>
+        <p>Generate prescriptions for patients.</p>
+    </div>
+
+</section>
+
+<!-- Footer -->
+
+<div class="footer">
+    © 2026 Hospital Management System | Internship Project
+</div>
+
+</body>
+</html>

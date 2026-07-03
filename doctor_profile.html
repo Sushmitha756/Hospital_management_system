@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctor Profile</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right,#4facfe,#00f2fe);
+    margin:0;
+    padding:0;
+}
+
+.container{
+    width:500px;
+    margin:50px auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 0 10px gray;
+}
+
+h2{
+    text-align:center;
+    color:#333;
+}
+
+.profile-item{
+    margin:15px 0;
+    font-size:18px;
+}
+
+span{
+    font-weight:bold;
+    color:blue;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:blue;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+button:hover{
+    background:green;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Doctor Profile</h2>
+
+<div class="profile-item">
+Name: <span id="name"></span>
+</div>
+
+<div class="profile-item">
+Email: <span id="email"></span>
+</div>
+
+<div class="profile-item">
+Phone: <span id="phone"></span>
+</div>
+
+<div class="profile-item">
+Specialization: <span id="specialization"></span>
+</div>
+
+<div class="profile-item">
+Qualification: <span id="qualification"></span>
+</div>
+
+<div class="profile-item">
+Experience: <span id="experience"></span>
+</div>
+
+<div class="profile-item">
+Consultation Fee: ₹<span id="fee"></span>
+</div>
+
+<button onclick="goBack()">Back to Dashboard</button>
+
+</div>
+
+<script>
+
+let email = localStorage.getItem("email");
+
+fetch("http://localhost:8081/doctor/" + email)
+
+.then(response => response.json())
+
+.then(data => {
+
+    document.getElementById("name").innerText = data.name;
+    document.getElementById("email").innerText = data.email;
+    document.getElementById("phone").innerText = data.phone;
+    document.getElementById("specialization").innerText = data.specialization;
+    document.getElementById("qualification").innerText = data.qualification;
+    document.getElementById("experience").innerText = data.experience;
+    document.getElementById("fee").innerText = data.fee;
+
+})
+
+.catch(error => {
+
+    console.log(error);
+    alert("Unable to load doctor profile");
+
+});
+
+function goBack(){
+    window.location.href="doctor_dashboard.html";
+}
+
+</script>
+
+</body>
+</html>

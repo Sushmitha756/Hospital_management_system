@@ -6,6 +6,47 @@
     <title>Login</title>
    <link rel="stylesheet" href="loginpage.css">
 </head>
+<script>
+function loginUser() {
+
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    fetch("http://localhost:8081/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            email: email,
+            password: password
+        })
+    })
+    .then(response => response.text())
+    .then(data => {
+
+        if(data === "Doctor"){
+            localStorage.setItem("email",email);
+            window.location.href = "doctor_dashboard.html";
+        }
+        else if(data === "Patient"){
+            window.location.href = "patient_dashboard.html";
+        }
+            else if(data === "Email not registered. Please register first."){
+        
+        let goRegister = confirm("Email not registered. Do you want to register?");
+
+        if(goRegister){
+            window.location.href = "register.html";
+        }
+    }
+        else{
+            alert(data);
+        }
+
+    });
+}
+</script>
 <body>
     <h2>Hospital Management System</h2>
     <div class="container">
@@ -16,8 +57,8 @@
                 <label for="password" >Enter your password *:</label>
         <input type="password" id="password" required><br><br>
   <select name="role" id="role" required>
-        <option value="select">select</option>
-    <option value="admin">Admin</option>
+        <option value="">Select Role</option>
+   
     <option value="doctor">Doctor</option>
     <option value="Patient">Patient</option>
     <option value="pharmacist">Pharmacist</option>
@@ -26,33 +67,12 @@
     <input type="checkbox" id="remember">
     <label for="remember">Remember me</label>
 </div>
- <button type="submit">Login</button><br><br>
+ <button type="button" onclick="loginUser()">Login</button><br><br>
 <a href="forgot_password_page.html" class="forgot">Forgot Password?</a>
    
- 
- <h3>Register</h3>
- <select id="role1">
-    <option value="">select</option>
-    <option value="Doctor">Doctor</option>
-    <option value="Patient">Patient</option>
- </select>
- <button type="button" onclick="goToRegister()">Go</button>
-    </form>
-   </div>
-</body>
-<script>
-function goToRegister(){
-    let role=document.getElementById("role1").value;
-    if(role==="Patient"){
-        window.location.href="patient_register_page.html";
-    }
-    else if(role==="Doctor"){
-        window.location.href="doctor_registration_page.html";
-    }
-    else{
-    alert("Please select role");
-}
-}
+ </form>
+ </div>
+ </body>
 
-</script>
+
 </html>

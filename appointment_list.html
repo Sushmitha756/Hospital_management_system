@@ -4,30 +4,138 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appointment List</title>
+    <style>
+      body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    margin: 0;
+    padding: 20px;
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    color: white;
+}
+
+/* Filters */
+label {
+    color: white;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+input, select {
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    margin-right: 15px;
+}
+
+/* Table */
+table {
+    width: 90%;
+    margin: auto;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Header */
+th {
+    background: #007bff;
+    color: white;
+    padding: 12px;
+}
+
+/* Cells */
+td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Row hover */
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Buttons */
+button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Cancel button */
+.cancel {
+    background-color: #dc3545;
+    color: white;
+}
+
+.cancel:hover {
+    background-color: #b02a37;
+}
+
+/* Reschedule button */
+.reschedule {
+    background-color: #28a745;
+    color: white;
+}
+
+.reschedule:hover {
+    background-color: #1e7e34;
+}
+    </style>
 </head>
 <body>
-    <h2>Appointment List</h2>
-    <label for="date">Filter by date:</label>
-    <input type="date" id="filterByDate" onchange="" >
-  <label>Filter by Doctor:</label>
-<select id="doctorFilter" onchange="filterByDoctor()">
+ <h2>Appointment List</h2>
+
+<label>Filter by date:</label>
+<input type="date" id="filterByDate">
+
+<label>Filter by Doctor:</label>
+<select id="doctorFilter">
   <option value="">All Doctors</option>
   <option value="Dr. Sharma">Dr. Sharma</option>
   <option value="Dr. Rao">Dr. Rao</option>
   <option value="Dr. Mehta">Dr. Mehta</option>
-</select><br><br>
+</select>
 
-<table border="1" id="appointmentTable">
+<br><br>
+
+<table id="appointmentTable">
   <tr>
     <th>Patient Name</th>
     <th>Doctor</th>
     <th>Date</th>
     <th>Time</th>
+    <th>Actions</th>
   </tr>
-   <button type="button" class="cancel">cancel</button>
- <button type="button" class="Reschedule">Reschedule</button>
- 
- </table> <br><br>
+
+  <tr>
+    <td>Ravi</td>
+    <td>Dr. Sharma</td>
+    <td>2026-04-10</td>
+    <td>10:00 AM</td>
+    <td>
+     <button class="cancel" onclick="cancelAppointment(this)">Cancel</button>
+      <button class="reschedule">Reschedule</button>
+    </td>
+  </tr>
+
+</table>
 
 </body>
+<script>
+function cancelAppointment(btn) {
+    let row = btn.parentNode.parentNode; // get row
+    row.remove(); // remove that row
+
+    alert("Appointment Cancelled");
+}
+</script>
 </html>

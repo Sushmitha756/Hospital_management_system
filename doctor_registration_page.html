@@ -1,83 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor registration page</title>
-    <link rel="stylesheet" href="doctor_registration_page.css">
-</head>
-<body>
-   <div class="container">
-    <h2> Doctor Registration page</h2>
-    <form onsubmit="return validateForm()" action="Loginpage.html">
-    Full name *: <input type="text" placeholder="Enter your full name" required id="name"><br><br>
-    Email *: <input type="email" placeholder="Abc@23" required id="email" ><br><br>
-    Phone number *: <input type="number" id="phone" required><br><br>
-    Specialization *:
-    <select id="Specialization" required>
-        <option >Cardiology</option>
-        <option >Neurology</option>
-        <option >Gynocology</option>
-        <option >Peditrision</option>
-        <option >dermatology</option>
-    </select> <br> <br>
-    Qualification *:
-    <input type="text" id="qualification" required><br><br>
-    Experience *:
-    <input type="text" id="experience" required><br><br>
-    Consultation fee *:
-    <input type="number" id="fee" required><br><br>
-Available Days *:
-<div class="days">
-<label><input type="checkbox" name="days" value="Mon"> Mon</label>
-<label><input type="checkbox" name="days" value="Tue"> Tue</label>
-<label><input type="checkbox" name="days" value="Wed"> Wed</label>
-<label><input type="checkbox" name="days" value="Thu"> Thu</label>
-<label><input type="checkbox" name="days" value="Fri"> Fri</label>
-</div><br>
-    Available timings *:
-    <input type="time" id="startTime" required>to <input type="time" id="endTime" required><br><br>
-    <button type="submit">Register</button>  
-    </form>
-    </div>
-</body>
-<script>
-function validateForm() {
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doctor Registration</title>
 
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let phone = document.getElementById("phone").value;
-    let spec = document.getElementById("specialization").value;
-    let qualification = document.getElementById("qualification").value;
-    let experience = document.getElementById("experience").value;
-    let fee = document.getElementById("fee").value;
-    let start = document.getElementById("startTime").value;
-    let end = document.getElementById("endTime").value;
+<style>
 
-    let days = document.getElementsByName("days");
-    let daySelected = false;
-
-    for (let i = 0; i < days.length; i++) {
-        if (days[i].checked) {
-            daySelected = true;
-            break;
-        }
-    }
-
-    if (name === "" || email === "" || phone === "" || spec === "" ||
-        qualification === "" || experience === "" || fee === "" ||
-        start === "" || end === "") {
-        alert("Please fill all fields");
-        return false;
-    }
-
-    if (!daySelected) {
-        alert("Please select at least one available day");
-        return false;
-    }
-
-    alert("Registration Successful!");
-    return true;
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right,#8ec8ea,#ffffff);
+    margin:0;
+    padding:0;
 }
+
+.container{
+    width:600px;
+    margin:30px auto;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 0 10px gray;
+}
+
+h2{
+    text-align:center;
+    color:#333;
+}
+
+label{
+    font-weight:bold;
+}
+
+input,select{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    margin-bottom:12px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    box-sizing:border-box;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:blue;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:hover{
+    background:green;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Doctor Registration</h2>
+
+<form onsubmit="registerDoctor(event)">
+
+<label>Full Name *</label>
+<input type="text" id="name" required>
+
+<label>Email *</label>
+<input type="email" id="email" required>
+
+<label>Phone Number *</label>
+<input type="text" id="phone" required>
+
+<label>Specialization *</label>
+<select id="specialization" required>
+    <option value="">Select</option>
+    <option>Cardiology</option>
+    <option>Neurology</option>
+    <option>Gynecology</option>
+    <option>Pediatrician</option>
+    <option>Dermatology</option>
+</select>
+
+<label>Qualification *</label>
+<input type="text" id="qualification" required>
+
+<label>Experience *</label>
+<input type="text" id="experience" required>
+
+<label>Consultation Fee *</label>
+<input type="number" id="fee" required>
+
+<label>Password *</label>
+<input type="password" id="password" required>
+
+<label>Confirm Password *</label>
+<input type="password" id="confirmPassword" required>
+
+<button type="submit">Register</button>
+
+</form>
+
+</div>
+
+<script>
+
+function registerDoctor(event){
+
+    event.preventDefault();
+
+    let password = document.getElementById("password").value;
+    let confirmPassword = document.getElementById("confirmPassword").value;
+
+    if(password !== confirmPassword){
+        alert("Passwords do not match");
+        return;
+    }
+
+    let doctorData = {
+
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        specialization: document.getElementById("specialization").value,
+        qualification: document.getElementById("qualification").value,
+        experience: document.getElementById("experience").value,
+        fee: document.getElementById("fee").value,
+        password: password
+
+    };
+
+    fetch("http://localhost:8081/doctor/register", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify(doctorData)
+
+    })
+
+    .then(response => {
+
+        if(!response.ok){
+            throw new Error("Registration Failed");
+        }
+
+        return response.json();
+    })
+
+    .then(data => {
+
+        alert("Doctor Registered Successfully");
+
+        window.location.href = "Loginpage.html";
+
+    })
+
+    .catch(error => {
+
+        console.log(error);
+
+        alert("Registration Failed");
+
+    });
+
+}
+
 </script>
+
+</body>
 </html>

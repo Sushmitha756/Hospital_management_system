@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Doctor Dashboard</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(to right,#4facfe,#00f2fe);
+}
+
+.dashboard-container{
+    text-align:center;
+    margin-top:80px;
+    color:white;
+}
+
+.dashboard-cards{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:30px;
+    margin-top:40px;
+}
+
+.card{
+    width:250px;
+    padding:25px;
+    background:white;
+    color:#333;
+    border-radius:15px;
+    cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    background:#007bff;
+    color:white;
+}
+
+.logout-btn{
+    margin-top:40px;
+    padding:10px 25px;
+    background:red;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.logout-btn:hover{
+    background:darkred;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <h1>Welcome Doctor</h1>
+
+    <div class="dashboard-cards">
+
+        <div class="card" onclick="openAppointments()">
+            <h3>Appointments List</h3>
+            <p>View patient bookings</p>
+        </div>
+
+        <div class="card" onclick="openProfile()">
+            <h3>Doctor Profile</h3>
+            <p>View your details</p>
+        </div>
+
+        <div class="card" onclick="openPrescription()">
+            <h3>Prescription</h3>
+            <p>Add medicines for patients</p>
+        </div>
+
+    </div>
+
+    <button class="logout-btn" onclick="logout()">Logout</button>
+
+</div>
+
+<script>
+
+function openAppointments(){
+    window.location.href="appointment_list.html";
+}
+
+function openProfile(){
+    window.location.href="doctor_profile.html";
+}
+
+function openPrescription(){
+    window.location.href="prescription.html";
+}
+
+function logout(){
+    alert("Logged Out Successfully");
+    window.location.href="Loginpage.html";
+}
+
+</script>
+
+</body>
+</html>
